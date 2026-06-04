@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-import { Whatsapp, TelephoneFill, ArrowUpShort, } from "react-bootstrap-icons";
+import { Whatsapp, TelephoneFill, ArrowUpShort } from "react-bootstrap-icons";
 
 export default function MainLayout() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -13,7 +13,6 @@ export default function MainLayout() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -23,6 +22,7 @@ export default function MainLayout() {
       behavior: "smooth",
     });
   };
+
   return (
     <div>
       <Header />
@@ -31,6 +31,16 @@ export default function MainLayout() {
 
       <a href="tel:+442072052003" className="phone-float" aria-label="Call Us">
         <TelephoneFill />
+      </a>
+
+      <a
+        href="https://wa.me/442072052003"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-float"
+        aria-label="WhatsApp Chat"
+      >
+        <Whatsapp />
       </a>
 
       {showScrollTop && (
@@ -44,120 +54,119 @@ export default function MainLayout() {
       )}
 
       <style>{`
-      .scroll-top-btn{
-  position:fixed;
-  right:50px;
-  bottom:110px;
-  width:58px;
-  height:58px;
-  border:none;
-  border-radius:50%;
-  background:linear-gradient(135deg,#2563eb,#06b6d4);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  z-index:999999;
-  box-shadow:0 12px 30px rgba(37,99,235,.35);
-  animation:scrollFade .35s ease;
-  transition:all .3s ease;
-}
+        .scroll-top-btn{
+          position:fixed;
+          right:50px;
+          bottom:170px;
+          width:58px;
+          height:58px;
+          border:none;
+          border-radius:50%;
+          background:linear-gradient(135deg,#2563eb,#06b6d4);
+          color:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          cursor:pointer;
+          z-index:999999;
+          box-shadow:0 12px 30px rgba(37,99,235,.35);
+          animation:scrollFade .35s ease;
+          transition:all .3s ease;
+        }
 
-.scroll-top-btn:hover{
-  transform:translateY(-4px) scale(1.08);
-}
+        .scroll-top-btn:hover{
+          transform:translateY(-4px) scale(1.08);
+        }
 
-.scroll-top-btn svg{
-  width:34px;
-  height:34px;
-}
+        .scroll-top-btn svg{
+          width:34px;
+          height:34px;
+        }
 
-@keyframes scrollFade{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@media (max-width:575px){
-  .scroll-top-btn{
-    right:8px;
-    bottom:128px;
-    width:52px;
-    height:52px;
-  }
-
-  .scroll-top-btn svg{
-    width:30px;
-    height:30px;
-  }
-}
         .phone-float,
         .whatsapp-float{
-          position: fixed;
-          right: 50px;
-          width: 58px;
-          height: 58px;
-          color: #fff;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-decoration: none;
-          z-index: 999999;
-          transition: all 0.3s ease;
+          position:fixed;
+          right:50px;
+          width:58px;
+          height:58px;
+          color:#fff;
+          border-radius:50%;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          text-decoration:none;
+          z-index:999999;
+          transition:all 0.3s ease;
         }
 
         .phone-float{
-          bottom: 40px;
-          background: linear-gradient(135deg,#7c3aed,#ec4899);
-          box-shadow: 0 12px 30px rgba(124,58,237,0.35);
+          bottom:105px;
+          background:linear-gradient(135deg,#16a34a,#22c55e);
+          box-shadow:0 12px 30px rgba(34,197,94,0.35);
         }
 
         .whatsapp-float{
-          bottom: 40px;
-          background: #25D366;
-          box-shadow: 0 12px 30px rgba(37,211,102,0.35);
-          animation: whatsappPulse 2s infinite;
+          bottom:40px;
+          background:#25D366;
+          box-shadow:0 12px 30px rgba(37,211,102,0.35);
+          animation:whatsappPulse 2s infinite;
         }
 
         .phone-float:hover,
         .whatsapp-float:hover{
-          transform: scale(1.08);
-          color: #fff;
+          transform:scale(1.08);
+          color:#fff;
         }
 
         .phone-float svg,
         .whatsapp-float svg{
-          width: 30px;
-          height: 30px;
+          width:30px;
+          height:30px;
+        }
+
+        @keyframes scrollFade{
+          from{
+            opacity:0;
+            transform:translateY(20px);
+          }
+          to{
+            opacity:1;
+            transform:translateY(0);
+          }
         }
 
         @keyframes whatsappPulse{
-          0%{ box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
-          70%{ box-shadow: 0 0 0 18px rgba(37,211,102,0); }
-          100%{ box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+          0%{ box-shadow:0 0 0 0 rgba(37,211,102,0.45); }
+          70%{ box-shadow:0 0 0 18px rgba(37,211,102,0); }
+          100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
         }
 
-        @media (max-width: 575px){
+        @media (max-width:575px){
+          .scroll-top-btn{
+            right:8px;
+            bottom:148px;
+            width:52px;
+            height:52px;
+          }
+
+          .scroll-top-btn svg{
+            width:30px;
+            height:30px;
+          }
+
           .phone-float,
           .whatsapp-float{
-            right: 8px;
-            width: 52px;
-            height: 52px;
+            right:8px;
+            width:52px;
+            height:52px;
           }
 
           .phone-float{
-            bottom: 62px;
+            bottom:82px;
           }
 
           .whatsapp-float{
-            bottom: 15px;
+            bottom:15px;
           }
         }
       `}</style>

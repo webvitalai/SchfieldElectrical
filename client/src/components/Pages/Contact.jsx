@@ -479,7 +479,7 @@ const Contact = () => {
                     <p>Quick chat for non-emergencies</p>
 
                     <a
-                      href="https://wa.me/4420793925954"
+                      href="https://wa.me/44793925954"
                       target="_blank"
                       rel="noreferrer"
                     >
